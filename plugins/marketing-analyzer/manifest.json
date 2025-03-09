@@ -1,32 +1,63 @@
 {
-  "name": "MarketingAnalyzer",
-  "version": "1.0.0",
-  "description": "Phân tích dữ liệu marketing với lưu trữ lịch sử và đề xuất chiến lược",
-  "apiUrl": "https://marketing-analyzer.vercel.app/analyze",
-  "endpoints": [
+  "identifier": "marketing-analyzer",
+  "meta": {
+    "title": "Marketing Analyzer",
+    "description": "Phân tích dữ liệu marketing với lưu trữ lịch sử và đề xuất chiến lược",
+    "tags": ["marketing", "analysis", "business"],
+    "avatar": "https://example.com/marketing-analyzer-icon.png"
+  },
+  "api": [
     {
-      "path": "/analyze",
+      "url": "https://tdnm-ai-hub-marketing-analyzer.vercel.app/analyze",
       "method": "POST",
       "description": "Phân tích dữ liệu marketing",
       "parameters": {
-        "adSpend": "number",
-        "revenue": "number",
-        "conversions": "number (optional)",
-        "userId": "string (optional)"
+        "adSpend": {
+          "type": "number",
+          "required": true,
+          "description": "Chi phí quảng cáo (VND)"
+        },
+        "revenue": {
+          "type": "number",
+          "required": true,
+          "description": "Doanh thu (VND)"
+        },
+        "conversions": {
+          "type": "number",
+          "required": false,
+          "description": "Số lượng chuyển đổi"
+        },
+        "userId": {
+          "type": "string",
+          "required": false,
+          "description": "ID người dùng"
+        }
+      },
+      "headers": {
+        "x-api-key": "mysecretkey123"
       }
     },
     {
-      "path": "/history",
+      "url": "https://tdnm-ai-hub-marketing-analyzer.vercel.app/history",
       "method": "GET",
       "description": "Lấy lịch sử phân tích",
       "parameters": {
-        "userId": "string (optional)"
+        "userId": {
+          "type": "string",
+          "required": false,
+          "description": "ID người dùng"
+        }
+      },
+      "headers": {
+        "x-api-key": "mysecretkey123"
       }
     }
   ],
-  "manifestUrl": "https://raw.githubusercontent.com/Diable88/tdnm-ai-hub/main/plugins/marketing-analyzer/manifest.json",
-  "authentication": {
-    "type": "apiKey",
-    "header": "x-api-key"
+  "version": "1.0.0",
+  "settings": {
+    "authentication": {
+      "type": "apiKey",
+      "header": "x-api-key"
+    }
   }
 }
