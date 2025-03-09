@@ -1,0 +1,32 @@
+{
+  "name": "MarketingAnalyzer",
+  "version": "1.0.0",
+  "description": "Phân tích dữ liệu marketing với lưu trữ lịch sử và đề xuất chiến lược",
+  "apiUrl": "https://marketing-analyzer.vercel.app/analyze",
+  "endpoints": [
+    {
+      "path": "/analyze",
+      "method": "POST",
+      "description": "Phân tích dữ liệu marketing",
+      "parameters": {
+        "adSpend": "number",
+        "revenue": "number",
+        "conversions": "number (optional)",
+        "userId": "string (optional)"
+      }
+    },
+    {
+      "path": "/history",
+      "method": "GET",
+      "description": "Lấy lịch sử phân tích",
+      "parameters": {
+        "userId": "string (optional)"
+      }
+    }
+  ],
+  "manifestUrl": "https://raw.githubusercontent.com/Diable88/tdnm-ai-hub/main/plugins/marketing-analyzer/manifest.json",
+  "authentication": {
+    "type": "apiKey",
+    "header": "x-api-key"
+  }
+}
